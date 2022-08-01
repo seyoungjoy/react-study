@@ -1,6 +1,6 @@
 # 한시간 만에 끝내는 React.js 입문 강의 정리
 
-# react init
+## react 프로젝트 생성
 ```
 npm init react-app [프로젝트 이름]
 ```
@@ -9,10 +9,15 @@ npm init react-app [프로젝트 이름]
 - Javascript XML
 - react에서 사용하는 javascript 확장 문법
 - js에서 html을 동시에 작성 가능.
+- XML(Extensible Markup Language) : data를 전달하는 데 포커스는 맞춘 HTML 확장성 버전
 
-❓ XML이란?
-
-## virtual DOM
+## Virtual DOM
+- DOM : HTML element 들을 트리 구조로 내타낸 것.
+- virtual DOM : 가상돔 객체를 만들어 dom 업데이트를 효율적으로 할 수 있게 만들어줌.
+- 리액트는 항상 두 개의 가상돔을 가지고 있으며 변경 전, 변경 이후의 가상돔을 가진다.
+- Diffing : 두 개의 가상돔을 비교하며 바뀐 부분 확인
+- 바뀐 가상돔의 부분을 Batch Update를 통해 실제 DOM에 한번에 업데이트
+- 이러한 과정을 Reconsiliation(재조정)이라 함.
 
 ## 함수형 컴포넌트, class형 두가지로 사용가능
 - 함수형 컴포넌트 사용 추천(화살표 함수)
@@ -228,6 +233,4 @@ const UserList = () => {
 export default UserList;
 ```
 ## Reference
-- (vue, react 비교)[https://ryuhojin.tistory.com/16]#   r e a c t - s t u d y 
- 
- 
+- (vue, react 비교)[https://ryuhojin.tistory.com/16]
