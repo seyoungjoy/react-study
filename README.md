@@ -84,7 +84,12 @@ export default App;
 ```
 
 ## useState
-- 컴포넌트 내에서 동적으로 상태를 관리할 때
+- 동적으로 상태를 관리할 때 사용하는 훅
+```
+const [state, setState] = useState([]);
+// state 자리는 는 초기 상태값으로 useState() 이 안에 설정
+// setState는 상태를 업데이트 할때 사용되는 함수.
+
 ```jsx
 // 1. react에서 useState import
 import React, {useState} from 'react';
