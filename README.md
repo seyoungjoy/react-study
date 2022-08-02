@@ -89,6 +89,7 @@ export default App;
 const [state, setState] = useState([]);
 // state 자리는 는 초기 상태값으로 useState() 이 안에 설정
 // setState는 상태를 업데이트 할때 사용되는 함수.
+```
 
 ```jsx
 // 1. react에서 useState import
