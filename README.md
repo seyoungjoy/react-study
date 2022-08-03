@@ -19,6 +19,12 @@ npm init react-app [프로젝트 이름]
 - 바뀐 가상돔의 부분을 Batch Update를 통해 실제 DOM에 한번에 업데이트
 - 이러한 과정을 Reconsiliation(재조정)이라 함.
 
+- 즉,
+- DOM을 일일이 접근해서 조작하는 것은 많은 단계들을 거쳐야함.
+- 그래서 react는 메모리에 virtual DOM 객체를 만들어 DOM의 업데이트를 한번에 모아서 처리해줌.
+- 이때 Diffing을 통해 바뀐 부분들을 확인하고
+- Batch Update를 통해 실제 DOM에 한번에 업데이트
+
 ## 함수형 컴포넌트, class형 두가지로 사용가능
 - 함수형 컴포넌트 사용 추천(화살표 함수)
 ```jsx
@@ -87,7 +93,7 @@ export default App;
 - 동적으로 상태를 관리할 때 사용하는 훅
 ```
 const [state, setState] = useState([]);
-// state 자리는 는 초기 상태값으로 useState() 이 안에 설정
+// state 자리는 초기 상태값으로 useState() 이 안에 설정
 // setState는 상태를 업데이트 할때 사용되는 함수.
 ```
 
