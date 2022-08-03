@@ -1,15 +1,16 @@
 import React from "react";
+
 const User = ({userData}) => {
-    return (
+    return(
         <tr>
             <td>{userData.name}</td>
             <td>{userData.email}</td>
         </tr>
-
     )
 }
 
-const UserList = () => {
+
+const UserList = () =>{
     const users = [
         {email : 'user1@gmail.com', name:'유재석'},
         {email : 'user2@gmail.com', name:'김종국'},
@@ -26,7 +27,7 @@ const UserList = () => {
             </tr>
             </thead>
             <tbody>
-                {users.map(user => <User userData={user}/>)}
+            {users.map(user => <User userData={user}/>)}
             </tbody>
         </table>
     )

@@ -91,11 +91,17 @@ export default App;
 
 ## useState
 - 동적으로 상태를 관리할 때 사용하는 훅
-```
-const [state, setState] = useState([]);
+- 특정 데이터의 상태를 컴포넌트 내에서 제어하고 싶을 때 사용
+```jsx
+const [state, setState] = useState();
 // state 자리는 초기 상태값으로 useState() 이 안에 설정
 // setState는 상태를 업데이트 할때 사용되는 함수.
+
+console.log(useState(0));
+// 콘솔로 찍어보면 아래와 같이 2개 값의 배열이 있으며 0에는 useState 내에 들어간 인수가,
+// 1에는 함수가 설정되어있는것을 확인할 수 있다.
 ```
+![img.png](img.png)
 
 ```jsx
 // 1. react에서 useState import
@@ -133,6 +139,9 @@ export default Counter;
 ```
 
 - input example
+* Vue 와 차이
+- vue에서는 v-model로 간단하게 value값 바인딩이 가능했음.
+- react에서는 usestate 초기값을 설정하고 또 변경되는 값을 설정을 해줘야함.
 ```jsx
 import React, {useState} from 'react';
 
@@ -156,6 +165,8 @@ export default Input;
 ```
 
 - 다중 state 관리 useState example
+- 동적으로 프로퍼티 이름 들고올 때 대괄호 사용[]
+
 ```jsx
 import React, {useState} from 'react';
 
@@ -244,5 +255,10 @@ const UserList = () => {
 
 export default UserList;
 ```
+
+## Think
+- 왜 useState를 굳이 쓰는거지?
+- 그냥 변수 하나를 설정한 뒤 제어하면 안되는건가?
+
 ## Reference
 - (vue, react 비교)[https://ryuhojin.tistory.com/16]
