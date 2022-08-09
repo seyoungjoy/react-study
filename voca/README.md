@@ -1,70 +1,174 @@
-# Getting Started with Create React App
+## Module css
+- css 전역으로 지정 -> `App.css`, `index.css`
+- css 모듈화 -> `[component name].module.css`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```jsx
+ // Hello.js
+import styles from "./Hello.module.css";
 
-## Available Scripts
+export default function Hello(){
+    return(
+        <div>
+            <h1 className={styles.title}>
+                Hello
+            </h1>
+        </div>
+    )
+}
 
-In the project directory, you can run:
+// Hello.module.css
+.title{
+    background-color:#eee;
+}
 
-### `npm start`
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 이벤트 처리
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```jsx
+export default function Hello(){
+    const showName = () => {
+        console.log('seyoung')
+    };
+    return(
+        <div>
+            <h1>Hello</h1>
+            <button onClick={showName}>Show name</button>
+        </div>
+    )
+}
+```
+## `useState`
+```jsx
+import {useState} from "react";
 
-### `npm test`
+export default function Hello(){
+    const [name, setName] = useState('Mike')
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    // (1) if else 문
+    // const changeName = () => {
+    //    if(name === 'Mike'){
+    //        setName('Jane')
+    //    } else{
+    //        setName('Mike');
+    //    }
+    // }
 
-### `npm run build`
+    // (2) 함수로 값 반환
+    // const changeName = () => name === 'Mike' ? 'Jane' : 'Mike';
+    // const settingName = () => setName(changeName);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    // (3) 강의에서 나온 방식
+    const changeName = () => {
+        setName(name === 'Mike' ? 'Jane' : 'Mike')
+    }
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    return(
+        <div>
+            <h1>State</h1>
+            <h2 id="name">{name}</h2>
+            <button onClick={changeName}>이름 바꾸기</button>
+        </div>
+    )
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 만약 `useState` 없이 state 값을 관리하려면?
+- 변수값이 변해도 DOM 없데이트를 해주지 않기 때문에 화면에서의 값은 변하지 않는다.
+- 그래서 `useState`를 사용해 데이터가 변했을때 다시 렌더링 되도록 해줘야 하는듯?
+```jsx
+export default function Hello(){
+    let name = 'Mike';
+    const changeName = () => {
+        name = name === 'Mike' ? 'Jane' : 'Mike';
+        console.log(name)
+        // 콘솔로 확인하면 changeName 함수가 잘 작동하나 DOM 업데이트를 따로 해줘야한다.
+        document.getElementById('name').innerText = name;
+    }
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    return(
+        <div>
+            <h1>State</h1>
+            <h2 id="name">{name}</h2>
+            <button onClick={changeName}>이름 바꾸기</button>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        </div>
+    )
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## props
+- 하위 컴포넌트로 값을 넘겨줄 때 아래와 같이 사용할 수 있다.
+```jsx
+import Hello from './component/Hello';
 
-## Learn More
+function App() {
+  return (
+    <div className="App">
+        <Hello age={10}></Hello>
+        <Hello age={20}></Hello>
+        <Hello age={30}></Hello>
+    </div>
+  );
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default App;
+```
+- 상위 컴포넌트로 받은 값은 `props`로 전달받아 사용할 수 있다. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```jsx
+import {useState} from "react";
 
-### Code Splitting
+export default function Hello(props){
+    const [name, setName] = useState('Mike')
+    const [age, setAge] = useState(props.age)
+    const changeName = () => {
+        setName(name === 'Mike' ? 'Jane' : 'Mike')
+    }
+    const changeAge = () => {
+        setAge(age+1);
+    }
+    return(
+        <div>
+            <h1>State</h1>
+            <h2 id="name">{name}</h2>
+            <h2>나이 {age}살</h2>
+            <button onClick={changeName}>이름 바꾸기</button>
+            <button onClick={changeAge}>나이 올리기</button>
+        </div>
+    )
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 잘못된 url 접근시 notFound page 만들기
+- Routes 내부에서 가장 마지막에 `path="/*"`로 notFound 컴포넌트를 연결시켜준다.
+- 지정된 path가 존재하면 지정된 path와 연결된 컴포넌트를 라우팅.
+- 지정된 path가 없는 url이면 `path="/*"`(All)조건에 걸리게 되어 NotFound 페이지를 보여주게 된다.
 
-### Analyzing the Bundle Size
+```jsx
+import Header from './component/Header';
+import DayList from './component/DayList';
+import Day from './component/Day';
+import {BrowserRouter, Route, Routes, } from "react-router-dom";
+import NotFound from "./component/NotFound";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+function App() {
+  return (
+      <BrowserRouter>
+        <div className="App">
+            <Header></Header>
+            <Routes>
+                <Route exact path="/" element={<DayList/>}></Route>
+                <Route exact path="/day/:day" element={<Day/>}></Route>
+                <Route path="/*" element={<NotFound/>}></Route>
+            </Routes>
+        </div>
+      </BrowserRouter>
+  );
+}
 
-### Making a Progressive Web App
+export default App;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
