@@ -1,8 +1,5 @@
 # React
 
----
-
-
 ### 이벤트 처리
 - [event handling](react/event-handling/event-handling.md)
 
