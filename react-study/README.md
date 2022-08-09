@@ -101,7 +101,7 @@ console.log(useState(0));
 // 콘솔로 찍어보면 아래와 같이 2개 값의 배열이 있으며 0에는 useState 내에 들어간 인수가,
 // 1에는 함수가 설정되어있는것을 확인할 수 있다.
 ```
-![img.png](../img.png)
+![img.png](../react/img/img.png)
 
 ```jsx
 // 1. react에서 useState import
