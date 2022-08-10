@@ -15,6 +15,18 @@
     {
       "day": 4,
       "id": 4
+    },
+    {
+      "day": 5,
+      "id": 5
+    },
+    {
+      "day": 6,
+      "id": 6
+    },
+    {
+      "day": 7,
+      "id": 7
     }
   ],
   "words": [
@@ -73,6 +85,48 @@
       "kor": "사과",
       "isDone": false,
       "id": 12
+    },
+    {
+      "day": "1",
+      "eng": "desk",
+      "kor": "책상",
+      "isDone": false,
+      "id": 13
+    },
+    {
+      "day": "1",
+      "eng": "candy",
+      "kor": "사탕",
+      "isDone": false,
+      "id": 14
+    },
+    {
+      "day": "1",
+      "eng": "computer",
+      "kor": "컴퓨터",
+      "isDone": false,
+      "id": 15
+    },
+    {
+      "day": "1",
+      "eng": "pen",
+      "kor": "볼펜",
+      "isDone": false,
+      "id": 16
+    },
+    {
+      "day": "1",
+      "eng": "mouse",
+      "kor": "마우스",
+      "isDone": false,
+      "id": 17
+    },
+    {
+      "day": "5",
+      "eng": "hello",
+      "kor": "안녕",
+      "isDone": false,
+      "id": 18
     }
   ]
 }

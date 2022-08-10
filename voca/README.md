@@ -264,8 +264,6 @@ export default function useFetch(url){
 
 ```
 
-
-
 ## useParams
 - 현재 라우터로 보내진 파라미터 값을 반환한다.
 
@@ -279,7 +277,67 @@ export default function Day(){
 }
 ```
 
-## query string으로 호출하는 데이터 선택도 가능했어..?
+## fetch 에 대해서 자세히...
 
+## useNavigate
+- `react-router-dom` 버전6에서는 useHistory() 대신 useNavigate를 사용한다.
 
+```jsx
+import {useNavigate} from "react-router-dom";
 
+export default function CreateWord(){
+    const nagivate = useNavigate();
+}
+```
+
+## useRef
+
+## 데이터 로딩 처리
+> 📌 TIP
+>  - 개발자 모드 네트워크에서 `slow 3g`모드를 사용해 느린 네트워크 환경에서의 테스트가 가능.
+>  - 단축평가 활용 !
+
+- http 요청을 통해 받아오는 데이터의 length가 0 일때 loading중이라는 표시를 해준다.
+
+```jsx
+const days = userFetch('http://localhost:3001/days');
+if(days.length === 0){
+    return <span>Loading...</span>
+}
+
+// 단축평가 활용
+{words.length === 0 && <span>Loading...</span>}
+```
+
+## 통신중일때 사용자 동작 막기
+> 📌 TIP
+> - `isLoading`이라는 상태를 만들어 true일때는 함수가 호출되지 않도록 설정한다.
+> - 버튼 태그에도 isLoading 상태에 따른 스타일을 지정해주면 사용자가 쉽게 인식할 수 있다.
+```jsx
+// (1) loading state 설정. 
+const [isLoading, setIsLoading] = useState(false);
+
+const onSubmit = (e) => {
+    e.preventDefault();
+    // (2) loading중이 아닐 때만 실행.
+    if(!isLoaidng){
+    // (3) onSubmit 함수가 동작할때는 loading을 true로 바꿔줌.
+        setIsLoading(true);
+        fetch...
+        .then(res => {
+            if(res.ok){
+                alert('전송 완료!')
+                // (4) 전송이 완료되면 다시 loading을 false로 변경.
+                setIsLoading(false);
+            }
+        })
+    }
+}
+
+return(
+    // (5) loading 상태에 따른 button 스타일 추가
+    <button style={{opacity: isLoading ? 0.3 : 1}}>
+        {isLoading ? "Saving..." : "저장"}
+    </button>
+)
+```

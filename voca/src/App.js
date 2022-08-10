@@ -1,5 +1,7 @@
 import Header from './component/Header';
 import DayList from './component/DayList';
+import CreateWord from './component/CreateWord';
+import CreateDay from './component/CreateDay';
 import Day from './component/Day';
 import {BrowserRouter, Route, Routes, } from "react-router-dom";
 import EmptyPage from "./component/EmptyPage";
@@ -12,6 +14,8 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<DayList/>}></Route>
                 <Route exact path="/day/:day" element={<Day/>}></Route>
+                <Route exact path="/create-word" element={<CreateWord/>}></Route>
+                <Route exact path="/create-day" element={<CreateDay/>}></Route>
                 <Route path="/*" element={<EmptyPage/>}></Route>
             </Routes>
         </div>
