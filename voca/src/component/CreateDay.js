@@ -1,4 +1,4 @@
-import useFetch from "../hooks/userFetch";
+import useFetch from "../hooks/userFetch.ts";
 import {useNavigate} from "react-router-dom";
 
 export default function CreateDay(){

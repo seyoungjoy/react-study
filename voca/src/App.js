@@ -1,8 +1,8 @@
 import Header from './component/Header';
-import DayList from './component/DayList';
-import CreateWord from './component/CreateWord';
+import DayList from './component/DayList.tsx';
+import CreateWord from './component/CreateWord.tsx';
 import CreateDay from './component/CreateDay';
-import Day from './component/Day';
+import Day from './component/Day.tsx';
 import {BrowserRouter, Route, Routes, } from "react-router-dom";
 import EmptyPage from "./component/EmptyPage";
 
