@@ -229,3 +229,57 @@ npm install -g json-server
 ```
 json-server --watch ./src/db/data.json --port 3001
 ```
+
+## useEffect
+- 데이터 변화가 감지되었을 때 실행
+- 의존성 배열?
+```jsx
+const [words, setWord] = useState([])
+
+useEffect(() => {
+        axios.get(`http://localhost:3001/words?day=${day}`)
+            .then(res => setWord(res.data))
+    }, [])
+```
+
+## Custom hooks
+- 재사용되는 코드들을 컴포넌트로 만들어 사용할 수 있다.
+- vue의 mixin의 기능과 유사.
+
+```jsx
+// userFetch.js
+import {useEffect, useState} from "react";
+import axios from "axios";
+
+export default function useFetch(url){
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        axios.get(url)
+            .then(res => setData(res.data))
+    }, [url]);
+
+    return data;
+}
+
+```
+
+
+
+## useParams
+- 현재 라우터로 보내진 파라미터 값을 반환한다.
+
+```jsx
+// (1) useParams import
+import {useParams} from "react-router-dom";
+
+export default function Day(){
+    // (2) useParams의 반환값을 변수에 저장 후 사용.
+    const {day} = useParams();
+}
+```
+
+## query string으로 호출하는 데이터 선택도 가능했어..?
+
+
+
