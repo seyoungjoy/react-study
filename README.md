@@ -31,7 +31,6 @@
 - [useNavigate](react/useNavigate/usenavigate.md)
 - [useParams](react/useParams/useparams.md)
 
----
 
 ## Hooks
 1. useState
@@ -46,7 +45,6 @@
 6. useCallback
 7. useReducer
 
----
 
 ## Tip
 ### 다중 데이터 map
@@ -58,7 +56,7 @@
 ### prevent user behavior
 - [prevent-user-behavior](react/prevent-user-behavior/Preventing-user-behavior-during-loading.md)
 
----
+
 
 ## Reference
 - [https://reactjs.org/](https://reactjs.org/)
