@@ -20,6 +20,9 @@
 - [useState](react/usestate/usestate.md)
 - [useState-test](react/usestate/usestate-test.md)
 - [toggle-state-practice](react/usestate/toggle-state-practice.md)
+- [useEffect](react/useEffect/useeffect.md)
+- [useNavigate](react/useNavigate/usenavigate.md)
+- [useParams](react/useParams/useparams.md)
 
 ### 다중 데이터(map)
 - [multiple-data](react/multiple-data/multiple-data.md)
@@ -30,7 +33,11 @@
 ### props
 - [props](react/props/props.md)
 
+### handle-loading
+- [handle-loading](react/handling-loading/handle-loading.md)
 
+### prevent user behavior
+- [prevent-user-behavior](react/prevent-user-behavior/Preventing-user-behavior-during-loading.md)
 
 ## Reference
 - [vue, react 비교](https://ryuhojin.tistory.com/16)
