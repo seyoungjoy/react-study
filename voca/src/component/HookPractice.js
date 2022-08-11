@@ -18,6 +18,11 @@ export default function HookPractice(){
                     <button>useRef</button>
                 </Link>
             </li>
+            <li>
+                <Link to="/hook-practice/use-context">
+                    <button>useContext</button>
+                </Link>
+            </li>
 
         </ul>
     )

@@ -9,6 +9,7 @@ import HookPractice from "./component/HookPractice"
 import UseState from "./component/hook-practice/UseState"
 import UseEffect from "./component/hook-practice/UseEffect"
 import UseRef from "./component/hook-practice/UseRef"
+import UseContext from "./component/hook-practice/Use-Context-API"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                 <Route exact path="/hook-practice/use-state" element={<UseState/>}></Route>
                 <Route exact path="/hook-practice/use-effect" element={<UseEffect/>}></Route>
                 <Route exact path="/hook-practice/use-ref" element={<UseRef/>}></Route>
+                <Route exact path="/hook-practice/use-context" element={<UseContext/>}></Route>
                 <Route path="/*" element={<EmptyPage/>}></Route>
             </Routes>
         </div>
