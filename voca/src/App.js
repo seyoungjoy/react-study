@@ -5,6 +5,10 @@ import CreateDay from './component/CreateDay';
 import Day from './component/Day.tsx';
 import {BrowserRouter, Route, Routes, } from "react-router-dom";
 import EmptyPage from "./component/EmptyPage";
+import HookPractice from "./component/HookPractice"
+import UseState from "./component/hook-practice/UseState"
+import UseEffect from "./component/hook-practice/UseEffect"
+import UseEffectClean from "./component/hook-practice/UseEffect_clean"
 
 function App() {
   return (
@@ -16,6 +20,10 @@ function App() {
                 <Route exact path="/day/:day" element={<Day/>}></Route>
                 <Route exact path="/create-word" element={<CreateWord/>}></Route>
                 <Route exact path="/create-day" element={<CreateDay/>}></Route>
+                <Route exact path="/hook-practice" element={<HookPractice/>}></Route>
+                <Route exact path="/hook-practice/use-state" element={<UseState/>}></Route>
+                <Route exact path="/hook-practice/use-effect" element={<UseEffect/>}></Route>
+                <Route exact path="/hook-practice/use-effect-clean" element={<UseEffectClean/>}></Route>
                 <Route path="/*" element={<EmptyPage/>}></Route>
             </Routes>
         </div>

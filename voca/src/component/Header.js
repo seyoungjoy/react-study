@@ -9,6 +9,7 @@ export default function Header(){
             <div className="menu">
                 <Link to="/create-word" className="link">단어 추가</Link>
                 <Link to="/create-day" className="link">Day 추가</Link>
+                <Link to="/hook-practice" className="link">Hook 연습</Link>
             </div>
         </div>
     )

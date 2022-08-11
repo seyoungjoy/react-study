@@ -49,8 +49,8 @@ export default Counter;
 
 - input example
 * Vue 와 차이
-- vue에서는 v-model로 간단하게 value값 바인딩이 가능했음.
-- react에서는 usestate 초기값을 설정하고 또 변경되는 값을 설정을 해줘야함.
+- vue에서는 v-model로 value값 바인딩이 가능.
+- react에서는 usestate 초기값을 설정하고 변경되는 값을 설정을 해줘야함.
 ```jsx
 import React, {useState} from 'react';
 

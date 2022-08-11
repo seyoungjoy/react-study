@@ -1,4 +1,6 @@
 ## toggle state
+- vue에서는 Boolean 값에 따른 토글상태를 v-show, v-if를 통해서 처리했는데
+- react에서는 상태 토글과 해당값을 `&&` 연산자를 이용한 단축평가를 통해 처리 가능.
 ```jsx
 // 내가 생각한 방법
 export default function Word({word}){
@@ -41,5 +43,3 @@ export default function Word({word}){
     )
 }
 ```
-- vue에서는 Boolean 값에 따른 토글상태를 v-show, v-if를 통해서 처리했는데
-- react에서는 상태 토글과 해당값을 `&&` 연산자로 묶어서 처리가 가능 !

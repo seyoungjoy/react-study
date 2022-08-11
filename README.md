@@ -35,8 +35,8 @@
 ## Hooks
 1. useState
    - [useState](react/usestate/usestate.md)
-   - [useState-test](react/usestate/usestate-test.md)
-   - [toggle-state-practice](react/usestate/toggle-state-practice.md)
+   - [useState 사용하는 이유](react/usestate/usestate-test.md)
+   - [toggle-state](react/usestate/toggle-state-practice.md)
 2. useEffect
    - [useEffect](react/useEffect/useeffect.md)
 3. useContext
