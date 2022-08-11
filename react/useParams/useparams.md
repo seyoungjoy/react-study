@@ -1,5 +1,5 @@
 ## useParams
-- 현재 라우터로 보내진 파라미터 값을 반환한다.
+- 현재 라우터의 파라미터 값을 반환.
 
 ```jsx
 // (1) useParams import

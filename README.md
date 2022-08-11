@@ -1,37 +1,56 @@
 # React
 
-### 이벤트 처리
-- [event handling](react/event-handling/event-handling.md)
-
-### virtual dom
-- [virtual dom](react/virtual-dom/virtual-dom.md)
-
+## Main concepts
 ### jsx 
 - [jsx](react/jsx/jsx.md)
 
-### 함수형 컴포넌트 
+### Virtual dom
+- [virtual-dom이란?](react/virtual-dom/virtual-dom.md)
+
+### Components 
 - [functional-component](react/functional-component/functional-component.md)
 
-### 라우팅
-- [route](react/route/route.md)
-- [not-found-page(404 page)](react/route/not-found-page.md)
+### Props
+- [props](react/props/props.md)
 
-### hook
-- [useState](react/usestate/usestate.md)
-- [useState-test](react/usestate/usestate-test.md)
-- [toggle-state-practice](react/usestate/toggle-state-practice.md)
-- [useEffect](react/useEffect/useeffect.md)
-- [useNavigate](react/useNavigate/usenavigate.md)
-- [useParams](react/useParams/useparams.md)
-
-### 다중 데이터(map)
-- [multiple-data](react/multiple-data/multiple-data.md)
+### Handling events
+- [event-handling](react/event-handling/event-handling.md)
 
 ### module css
 - [module css](react/module-css/module-css.md)
 
-### props
-- [props](react/props/props.md)
+---
+
+## React Router(react-router-dom@6)
+
+### Routes
+- [installation-and-start](react/route/route.md)
+- [not-found-page-settings](react/route/not-found-page.md)
+
+### Hooks
+- [useNavigate](react/useNavigate/usenavigate.md)
+- [useParams](react/useParams/useparams.md)
+
+---
+
+## Hooks
+1. useState
+   - [useState](react/usestate/usestate.md)
+   - [useState-test](react/usestate/usestate-test.md)
+   - [toggle-state-practice](react/usestate/toggle-state-practice.md)
+2. useEffect
+   - [useEffect](react/useEffect/useeffect.md)
+3. useContext
+4. useRef
+5. useMemo
+6. useCallback
+7. useReducer
+
+---
+
+## Tip
+### 다중 데이터 map
+- [multiple-data](react/multiple-data/multiple-data.md)
 
 ### handle-loading
 - [handle-loading](react/handling-loading/handle-loading.md)
@@ -39,6 +58,12 @@
 ### prevent user behavior
 - [prevent-user-behavior](react/prevent-user-behavior/Preventing-user-behavior-during-loading.md)
 
+---
+
 ## Reference
+- [https://reactjs.org/](https://reactjs.org/)
+- [https://reactrouter.com/](https://reactrouter.com/)
+- [https://www.youtube.com/playlist?list=PLZ5oZ2KmQEYjwhSxjB_74PoU6pmFzgVMO](https://www.youtube.com/playlist?list=PLZ5oZ2KmQEYjwhSxjB_74PoU6pmFzgVMO)
+- [https://www.youtube.com/playlist?list=PLZKTXPmaJk8J_fHAzPLH8CJ_HO_M33e7-](https://www.youtube.com/playlist?list=PLZKTXPmaJk8J_fHAzPLH8CJ_HO_M33e7-)
 - [vue, react 비교](https://ryuhojin.tistory.com/16)
 

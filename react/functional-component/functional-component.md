@@ -1,4 +1,5 @@
-## 함수형 컴포넌트 사용 추천(화살표 함수)
+## 함수형 컴포넌트
+- 화살표 함수형 사용을 추천.
 
 ```jsx
 // 함수형
@@ -9,6 +10,14 @@ function Home(){
 }
 
 export default Home;
+
+// 화살표 함수
+import React from "react";
+
+const Home = () => {
+    return()
+}
+export default home;
 
 //class형
 import React, {Compoenet} from "react";
