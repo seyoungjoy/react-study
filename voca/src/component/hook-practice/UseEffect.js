@@ -10,7 +10,6 @@ export default function UseState(){
         setName(e.target.value);
     }
 
-
     return(
         <>
             <h1>useEffect</h1>

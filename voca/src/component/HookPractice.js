@@ -14,8 +14,8 @@ export default function HookPractice(){
                 </Link>
             </li>
             <li>
-                <Link to="/hook-practice/use-effect-clean">
-                    <button>useEffect_clean</button>
+                <Link to="/hook-practice/use-ref">
+                    <button>useRef</button>
                 </Link>
             </li>
 
