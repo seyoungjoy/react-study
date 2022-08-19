@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {useState} from "react";
+import {useRef, useState} from "react";
 
 const DiaryEditor = () => {
     const [state, setState] = useState({
@@ -13,10 +13,21 @@ const DiaryEditor = () => {
             [e.target.id] : e.target.value
         });
     }
+
+    const titleInput = useRef();
+    const contentTextarea = useRef();
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
+        if(state.title.length < 1){
+            titleInput.current.focus();
+            return;
+        }
+        if(state.content.length < 1){
+            contentTextarea.current.focus();
+            return;
+        }
         alert('저장 완료!')
-        console.log(state);
     }
 
     return(
@@ -27,7 +38,7 @@ const DiaryEditor = () => {
                         <label htmlFor="title">제목</label>
                     </dt>
                     <dd>
-                        <input type="text" id={"title"} value={state.title} onChange={onChangeHandler}/>
+                        <input ref={titleInput} type="text" id={"title"} value={state.title} onChange={onChangeHandler}/>
                         {/*<div>{state.title}</div>*/}
                     </dd>
                 </dl>
@@ -36,7 +47,8 @@ const DiaryEditor = () => {
                         <label htmlFor="content">내용</label>
                     </dt>
                     <dd>
-                        <textarea name="content" id="content" cols="30" rows="10" value={state.content} onChange={onChangeHandler}></textarea>
+                        <textarea
+                           ref={contentTextarea} name="content" id="content" cols="30" rows="10" value={state.content} onChange={onChangeHandler}></textarea>
                         {/*<div>{state.content}</div>*/}
                     </dd>
                 </dl>
