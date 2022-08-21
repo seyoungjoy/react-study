@@ -20,11 +20,16 @@ function App() {
         setData([newItem, ...data]);
     }
 
+    const onDelete = (targetId) => {
+        const newList = data.filter(it => it.id !== targetId);
+        setData(newList);
+    }
+
     return (
         <div className="App">
             <h1>오늘의 일기</h1>
             <DiaryEditor onCreate={onCreate}/>
-            <DiaryList data={data}/>
+            <DiaryList onDelete={onDelete} data={data}/>
         </div>
     );
 }

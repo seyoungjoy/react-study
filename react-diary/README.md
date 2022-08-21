@@ -1,10 +1,21 @@
 # React Diary App
+| ✏ 개념 기록
 ## useRef로 input focusing 구현.
 - useRef로 지정한 객체는 current라는 프로퍼티를 제공해 해당 요소에 접근 가능.
+```jsx
+const titleInput = useRef();
 
-## list rendering
-- defaultProps
-    - props로 undefined가 들어와 에러가 뜨는 것을 방지하기 위해 defult설정이 가능.
+const onSubmitHandler = (e) =>{
+    ...
+    if(title.length < 1){
+        titleInput.current.focus();
+        return
+    }
+    ...
+}
+```
+## default props
+- props로 undefined가 들어와 에러가 뜨는 것을 방지하기 위해 defult설정이 가능.
 ```jsx
 DiaryList.defaultProps ={
     diaryList:[],
@@ -47,3 +58,32 @@ function App() {
 
 export default App;
 ```
+
+## 데이터 삭제하기
+- 삭제한 데이터를 제외한 배열을 `setData`에 다시 넣어준다.
+- 상위 컴포넌트 `App.js`에 `onDelete`함수를 만들어 삭제버튼이 있는<br>
+하위 컴포넌트까지 props로 보내준다.
+```jsx
+//App.js
+const onDelete = (targetId) => {
+    window.confirm(`${targetId}번 게시물을 삭제하시겠습니까?`);
+    const newList = data.filter(item => item.id !== targetId);
+    setData(newList);
+}
+
+//하위 컴포넌트
+<button onClick={() => onDelete(list.id)}>삭제</button>
+```
+> **하위 컴포넌트 -> 상위 컴포넌트로 데이터 전달**<br>
+> - react
+>   - 하위에서 상위로 props로 값을 넘겨줄 수 없다.<br>
+>   그래서 상위 컴포넌트에 함수를 만들어 prop로 넘겨주고<br>
+>   하위 컴포넌트에서는 함수를 props로 받아 인자값을 넘겨줘야한다.
+> - vue
+>   - emit을 통해 하위에서 상위로 데이터 전달 가능
+
+## 데이터 수정하기
+
+
+## Reference
+- https://www.inflearn.com/course/%ED%95%9C%EC%9E%85-%EB%A6%AC%EC%95%A1%ED%8A%B8/dashboard

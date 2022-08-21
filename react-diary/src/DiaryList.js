@@ -1,5 +1,5 @@
 import DiaryItem from "./DiaryItem";
-const DiaryList = ({data}) => {
+const DiaryList = ({data, onDelete}) => {
 
     return(
         <div>
@@ -8,7 +8,7 @@ const DiaryList = ({data}) => {
             <div>
                 {
                     data.map(list => (
-                        <DiaryItem key={list.id} list={list}/>
+                        <DiaryItem onDelete={onDelete} key={list.id} list={list}/>
                     ))
                 }
             </div>
