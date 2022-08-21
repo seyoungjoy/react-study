@@ -1,18 +1,14 @@
-const DiaryList = ({diaryList}) => {
+import DiaryItem from "./DiaryItem";
+const DiaryList = ({data}) => {
 
     return(
         <div>
             <h2>일기 리스트</h2>
-            <h4>{diaryList.length}개의 일기가 있습니다.</h4>
+            <h4>{data.length}개의 일기가 있습니다.</h4>
             <div>
                 {
-                    diaryList.map(list => (
-                        <div key={list.id}>
-                            <div>작성자 : {list.author}</div>
-                            <div>일기 : {list.content}</div>
-                            <div>감정 : {list.emotion}</div>
-                            <div>작성 시간(ms) : {list.created_date}</div>
-                        </div>
+                    data.map(list => (
+                        <DiaryItem key={list.id} list={list}/>
                     ))
                 }
             </div>

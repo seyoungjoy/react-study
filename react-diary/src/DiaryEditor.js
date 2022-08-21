@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 import {useRef, useState} from "react";
 
-const DiaryEditor = () => {
+const DiaryEditor = ({onCreate}) => {
     const [state, setState] = useState({
-        title: '',
+        author:"",
         content: '',
-        score:1,
+        emotion:1,
+
     });
     const onChangeHandler = (e) => {
         setState({
@@ -19,7 +20,7 @@ const DiaryEditor = () => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        if(state.title.length < 1){
+        if(state.author.length < 1){
             titleInput.current.focus();
             return;
         }
@@ -27,6 +28,7 @@ const DiaryEditor = () => {
             contentTextarea.current.focus();
             return;
         }
+        onCreate(state.author, state.content, state.emotion);
         alert('저장 완료!')
     }
 
@@ -35,10 +37,10 @@ const DiaryEditor = () => {
             <form>
                 <dl>
                     <dt>
-                        <label htmlFor="title">제목</label>
+                        <label htmlFor="title">글쓴이</label>
                     </dt>
                     <dd>
-                        <input ref={titleInput} type="text" id={"title"} value={state.title} onChange={onChangeHandler}/>
+                        <input ref={titleInput} type="text" id={"author"} value={state.author} onChange={onChangeHandler}/>
                         {/*<div>{state.title}</div>*/}
                     </dd>
                 </dl>
@@ -54,10 +56,10 @@ const DiaryEditor = () => {
                 </dl>
                 <dl>
                     <dt>
-                        <label htmlFor="score">오늘의 감정점수 : {state.score}</label>
+                        <label htmlFor="emotion">오늘의 감정점수 : {state.emotion}</label>
                     </dt>
                     <dd>
-                        <select name="score" id="score" onChange={onChangeHandler}>
+                        <select name="emotion" id="emotion" onChange={onChangeHandler}>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
