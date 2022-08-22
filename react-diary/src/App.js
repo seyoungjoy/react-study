@@ -1,9 +1,29 @@
 import './App.css';
 import DiaryEditor from './DiaryEditor'
 import DiaryList from './DiaryList'
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import axios from "axios";
 
 function App() {
+    useEffect(() => getData, [])
+
+    const getData = async () => {
+        const res = await axios.get('https://jsonplaceholder.typicode.com/comments')
+            .then((res) => res.data);
+
+        const initData = res.splice(0,20).map(item => {
+            return{
+                author : item.email,
+                content: item.body,
+                emotion : Math.floor(Math.random() * 5)+1,
+                created_data : new Date().getTime(),
+                id : dataId.current++
+            }
+        });
+        setData(initData);
+    }
+
+
     const [data, setData] = useState([]);
     const dataId = useRef(0);
 
@@ -33,8 +53,6 @@ function App() {
             )
         )
     }
-
-
 
     return (
         <div className="App">
