@@ -60,7 +60,7 @@ export default App;
 ```
 
 ## 데이터 삭제하기
-- 삭제한 데이터를 제외한 배열을 `setData`에 다시 넣어준다.
+- 삭제한 데이터를 제외한 배열을 `useState`를 통해 업데이트해준다.
 - 상위 컴포넌트 `App.js`에 `onDelete`함수를 만들어 삭제버튼이 있는<br>
 하위 컴포넌트까지 props로 보내준다.
 ```jsx
@@ -83,7 +83,40 @@ const onDelete = (targetId) => {
 >   - emit을 통해 하위에서 상위로 데이터 전달 가능
 
 ## 데이터 수정하기
+- 수정 모드에 대한 상태를 지정한다.
+```jsx
+const [isEdit, setIsEdit] = useState(false);
 
+const toggleEdit = () => setIsEdit(!isEdit);
+```
+- 수정일 때 별도의 `<textarea/>`를 만들다면 value 값에 대한 State를 추가한다.
+```jsx
+const [localContent, setLocalContent] = useState("");
+{
+    isEdit ?
+            <>
+                <textarea value={localContent} onChange={(e)=>setLocalContent(e.target.value)}/>
+            </>
+            :
+            <>
+              {content}
+            </>
+}
+```
+
+- 수정 완료에 대한 이벤트는 데이터 배열이 있는 상튀 컴포넌트에서 만들어 props로 전달한다.(업데이트시 리렌더링을 위해)
+```jsx
+//App.js (수정할 데이터가 존재하는 상위 컴포넌트)
+
+const [data, setData] = useState([]);
+
+const onEdit = (targetId, newContent) => {
+    setData(
+        data.map((item) => item.id === targetId ? {...item, content:newContent} : item)
+    )
+}
+
+```
 
 ## Reference
 - https://www.inflearn.com/course/%ED%95%9C%EC%9E%85-%EB%A6%AC%EC%95%A1%ED%8A%B8/dashboard

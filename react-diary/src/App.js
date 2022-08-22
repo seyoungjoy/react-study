@@ -21,15 +21,26 @@ function App() {
     }
 
     const onDelete = (targetId) => {
-        const newList = data.filter(it => it.id !== targetId);
+        window.confirm(`${targetId}번 게시물을 삭제하시겠습니까?`)
+        const newList = data.filter(item => item.id !== targetId)
         setData(newList);
     }
+
+    const onEdit = (targetId, newContent) => {
+        setData(
+            data.map((item)=> item.id === targetId ?
+                {...item, content:newContent} : item
+            )
+        )
+    }
+
+
 
     return (
         <div className="App">
             <h1>오늘의 일기</h1>
             <DiaryEditor onCreate={onCreate}/>
-            <DiaryList onDelete={onDelete} data={data}/>
+            <DiaryList onEdit={onEdit} onDelete={onDelete} data={data}/>
         </div>
     );
 }
