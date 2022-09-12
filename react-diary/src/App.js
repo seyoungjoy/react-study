@@ -11,7 +11,7 @@ function App() {
         const res = await axios.get('https://jsonplaceholder.typicode.com/comments')
             .then((res) => res.data);
 
-        const initData = res.splice(0,20).map(item => {
+        const initData = res.slice(0,20).map(item => {
             return{
                 author : item.email,
                 content: item.body,

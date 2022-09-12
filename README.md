@@ -1,4 +1,8 @@
 # React
+## start
+```
+npx create-react-app my-app --template typescript
+```
 
 ## Main concepts
 ### jsx 

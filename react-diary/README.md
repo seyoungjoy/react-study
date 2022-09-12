@@ -83,7 +83,7 @@ const onDelete = (targetId) => {
 >   - emit을 통해 하위에서 상위로 데이터 전달 가능
 
 ## 데이터 수정하기
-- 수정 모드에 대한 상태를 지정한다.
+- 수정 모드에 대한 상태를 설정
 ```jsx
 const [isEdit, setIsEdit] = useState(false);
 
@@ -136,6 +136,17 @@ const getData = async () => {
     })
   setData(initData);
 }
+```
+
+- spread 연산자로 map 배열 모두 props로 보내기.
+```jsx
+import DiaryItem from "./DiaryItem";
+
+<div>
+  {diaryList.map((it) => (
+          <DiaryItem key={it.id} {...it}/>
+    ))}
+</div>
 
 ```
 
