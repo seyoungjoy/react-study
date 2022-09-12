@@ -1,7 +1,7 @@
 import './App.css';
 import DiaryEditor from './DiaryEditor'
 import DiaryList from './DiaryList'
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 import axios from "axios";
 
 function App() {
@@ -54,10 +54,25 @@ function App() {
         )
     }
 
+    const getDiaryAnalysis = useMemo (() => {
+        console.log('기분 분석 시작')
+        const goodCount = data.filter(item => item.emotion > 2).length;
+        const badCount = data.length - goodCount;
+        const goodRatio = (goodCount/data.length) * 100;
+        return {goodRatio, goodCount, badCount};
+    }, [data.length]);
+    // [주의] useMemo는 콜백함수의 리턴값만 반환하며 함수로 사용할 수 없다.
+    // const {goodRatio, goodCount, badCount} = getDiaryAnalysis();
+    const {goodRatio, goodCount, badCount} = getDiaryAnalysis;
+
     return (
         <div className="App">
             <h1>오늘의 일기</h1>
             <DiaryEditor onCreate={onCreate}/>
+            <div>전체 일기 : {data.length}</div>
+            <div>기분 좋은 일기 개수 : {goodCount}</div>
+            <div>기분 나쁜 일기 개수 : {badCount}</div>
+            <div>기분 좋은 일기 비율 : {goodRatio}%</div>
             <DiaryList onEdit={onEdit} onDelete={onDelete} data={data}/>
         </div>
     );

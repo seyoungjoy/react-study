@@ -48,6 +48,7 @@ npx create-react-app my-app --template typescript
 4. useRef
    - [useRef](react/useRef/useRef.md)
 5. useMemo
+   - [useMemo](react/useMemo/useMemo.md)
 6. useCallback
 7. useReducer
 
